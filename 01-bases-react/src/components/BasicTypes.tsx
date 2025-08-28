@@ -1,27 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const BasicTypes = () => {
-const name: string = "Víctor";
-   const age: number = 28;
-   const isActive: boolean = true;
- 
+export const BasicTypes = () => {
+  let name: string = "Víctor";
+  const [age, setAge] = useState(28);
+
+
+  //let  isActive: boolean = true;
+  const [isActive, setisActive] = useState(true);
   return (
     <>
+      <h3>Basic Types</h3>
+      {isActive == true ?
+        <ul>
+          <li>Nombre: {name}</li>
+          <li>Edad: {age}</li>
+        </ul> :
+        <p>Usuario Inactivo</p>
+      }
+      <h2>Variable de estado age</h2>
+      <button onClick={
+        () => {
+          setAge(29);
+          console.log(`El valor de age es: ${age}`)
+        }
+      }>Modificar edad</button>
 
-    <div>Hello world</div>
-    
-    <div>
-      {" "+name}
-    </div>
-    <div>
-      {" "+age}
-    </div>
-    <div>
-      {" "+isActive}
-    </div>
-
-
+      <h2>Variable de estado activo</h2>
+      <button onClick={
+        () => {
+          setisActive(!isActive);
+          console.log(`El valor de age es: ${isActive}`)
+        }
+      }>Modificar Estado</button>
     </>
+
+
   )
 }
 
