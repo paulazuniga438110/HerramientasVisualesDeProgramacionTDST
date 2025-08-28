@@ -32,6 +32,7 @@ export const BasicTypes = () => {
           console.log(`El valor de age es: ${isActive}`)
         }
       }>Modificar Estado</button>
+      <h1>maria</h1>
     </>
 
 
