@@ -9,7 +9,25 @@ export const BasicTypes = () => {
 
    const [isActive, setIsActive] = useState(true)
 
+   const names =[
 
+    "Juan David",
+    "Victor",
+    "Jaime",
+    "Nicolas",
+    "Daniel",
+
+   ];
+
+   const user ={
+/* Estructura de datos, tipo llave valor que lo quee hace es asignar un tipo de valor */
+    name: "Paula",
+    email: "pau@gmail.com",
+    age: "19",
+    role: "Estudiante",
+    maritalStatus: "Divorciada",
+    isActive: true
+   }
 
   return (
     <>
@@ -33,11 +51,22 @@ export const BasicTypes = () => {
                 {isActive ? "Desactivar" : "Activar"}
             </button>
 
+            
+                      
+
+     {names[0]}
+
      <ul>
-      {/*li*3 : */}
-      <li>name: {name}</li>
-      <li>age: {age}</li>
-      <li>isActive: {isActive}</li>
+
+     {names.map(
+      (name, index)=><li key={index}>
+        {name}
+      </li>
+     )}
+
+     <h2>Objetos literales</h2>
+     {user.name}
+
      </ul>
     </>
   
