@@ -29,6 +29,15 @@ export const BasicTypes = () => {
     isActive: true
    }
 
+   interface user {
+    name?: string;   /*Singo de interogacion significa opcional */
+    email: string;
+    age: number;
+    role: string;
+    maritalStatus: string;
+    isActive: boolean; 
+    
+   }
 
    const users =[
 
