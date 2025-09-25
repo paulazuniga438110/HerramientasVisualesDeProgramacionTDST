@@ -42,7 +42,7 @@ interface user {
      {users.map(
                 (value, index) => <div key={index}>
                     <div>{value.name}</div>
-                    <div>{value.catidad}</div>
+                    <div>{value.cantidad}</div>
                     <div>{value.valor}</div>
                     <div>{value.isActive}</div>
                     <hr />
