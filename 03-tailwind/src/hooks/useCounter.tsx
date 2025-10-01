@@ -1,16 +1,20 @@
-import {useState} from 'react'
+import { useState } from "react";
 
-export const useCounter = () => {
-  const [count, setCount] = useState(10); 
-  const increaseBy = (value: number) =>{
-    setCount(count + value); 
-  }
-  return {
-    //properties 
-    count, 
+export const useCounter = (initial: number = 0) => {
+  const [count, setCount] = useState<number>(initial);
 
-    //actions 
-    increaseBy
+  const increaseBy = (value: number) => {
+    setCount((c) => c + value);
   };
-  
-}; 
+
+  const reset = (value: number = initial) => {
+    setCount(value);
+  };
+
+  return {
+    count,
+    increaseBy,
+    reset,
+  };
+};
+

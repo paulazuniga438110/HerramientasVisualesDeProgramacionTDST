@@ -1,34 +1,29 @@
-import React, { useState } from 'react'
-import {useCounter} from '../hooks/useCounter';
-
+import { useCounter } from "../hooks/useCounter";
+import { StyledButton } from "./StyledButton";
 
 export const Counter = () => {
-  const {count, increaseBy} = useCounter();
+  const { count, increaseBy, reset } = useCounter(10);
 
   return (
-    <div>
-      <h3>
-        Counter <small>{count}</small>
+    <div className="max-w-sm mx-auto p-4 border rounded shadow-sm">
+      <h3 className="text-center text-lg font-semibold mb-3">
+        Counter <small className="text-gray-600">{count}</small>
       </h3>
 
-      <div className="flex gap-4">
-        <button
-          className="p-2 bg-blue-500 rounded-md w-10 text-white"
-          onClick={() => increaseBy( 1)}
-        >
-          +1
-        </button>
-
-        <button
-          className="p-2 bg-blue-500 rounded-md w-10 text-white"
-          onClick={() => increaseBy(- 1)}
-        >
-          -1
-        </button>
+      <div className="flex justify-center gap-3">
+        <StyledButton label="+1" color="bg-green-500" handleClick={() => increaseBy(1)} />
+        <StyledButton label="-1" color="bg-red-500" handleClick={() => increaseBy(-1)} />
+        <div className="p-2">
+          <button
+            onClick={() => reset()}
+            className="bg-blue-600 px-4 py-2 rounded text-white hover:opacity-90"
+          >
+            Resetear
+          </button>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Counter
 
