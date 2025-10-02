@@ -3,8 +3,6 @@ import { useTask } from "../hooks/useTask";
 import type { Task as TaskType } from "../hooks/useTask";
 import { Task } from "./Task";
 
-
-
 export const TaskList = () => {
   const initial: TaskType[] = [
     { id: 1, title: "Hacer la tarea de React", isCompleted: false },
@@ -22,38 +20,51 @@ export const TaskList = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 border rounded shadow-sm">
-      <h3 className="text-xl font-semibold mb-3">Lista de Tareas</h3>
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl">
+      <h3 className="text-2xl font-bold text-purple-600 mb-4">Lista de Tareas</h3>
 
-      <form onSubmit={handleAdd} className="flex gap-2 mb-4">
+      {/* Formulario */}
+      <form onSubmit={handleAdd} className="flex gap-2 mb-6">
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Nueva tarea..."
-          className="flex-1 px-3 py-2 border rounded"
+          className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
-        <button className="bg-green-500 px-4 py-2 rounded text-white">Agregar</button>
+        <button
+          className="bg-green-500 px-4 py-2 rounded-md text-white font-medium hover:bg-green-600 transition"
+        >
+          Agregar
+        </button>
       </form>
 
-      <ul className="space-y-2">
+      {/* Lista de tareas */}
+      <ul className="space-y-3">
         {tasks.map((t) => (
           <Task
             key={t.id}
             task={t}
             onToggle={toggleTask}
             onRemove={removeTask}
-            containerClass="bg-white"
-            titleClass="px-2"
-            buttonClass="hover:opacity-90"
+            containerClass="p-3 bg-purple-50 rounded-lg border border-purple-200 flex justify-between items-center"
+            titleClass="cursor-pointer select-none"
+            buttonClass="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
           />
         ))}
       </ul>
 
-      <div className="mt-4 flex gap-2">
-        <button onClick={() => resetList([])} className="bg-yellow-500 px-3 py-1 rounded text-white">
+      {/* Botones de reset */}
+      <div className="mt-6 flex gap-3">
+        <button
+          onClick={() => resetList([])}
+          className="bg-yellow-500 px-4 py-2 rounded-md text-white font-medium hover:bg-yellow-600 transition"
+        >
           Resetear lista
         </button>
-        <button onClick={() => resetList(initial)} className="bg-blue-600 px-3 py-1 rounded text-white">
+        <button
+          onClick={() => resetList(initial)}
+          className="bg-blue-600 px-4 py-2 rounded-md text-white font-medium hover:bg-blue-700 transition"
+        >
           Volver a inicial
         </button>
       </div>

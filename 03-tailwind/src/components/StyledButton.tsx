@@ -1,36 +1,35 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-
-interface Props{
-    label:string;
-    color:string;
-    handleClick: ()=> void;
+interface Props {
+  label: string;
+  color: string; 
+  handleClick: () => void;
 }
-export const StyledButton = ({label, color, handleClick}: Props) => {
-    const [isDisabled, setIsDisabled] = useState(false)
+
+export const StyledButton = ({ label, color, handleClick }: Props) => {
+  const [isDisabled, setIsDisabled] = useState(false);
+
   return (
-    <div className="p-6 space-y-4">
+    <div className="flex flex-col items-center gap-2">
       <button
         disabled={isDisabled}
-        className={color + " px-4 py-2 rounded-md text-white transition hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed"}
         onClick={handleClick}
+        className={`${color} px-4 py-2 rounded-lg text-white font-medium shadow-md transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed`}
       >
         {label}
       </button>
 
-
-      <label className="flex items-center gap-2">
+      <label className="flex items-center gap-2 text-sm text-gray-600">
         <input
           type="checkbox"
           checked={isDisabled}
           onChange={() => setIsDisabled(!isDisabled)}
+          className="w-4 h-4"
         />
-        Deshabilitar botón
+        Deshabilitar
       </label>
     </div>
-     );
+  );
+};
 
-  
-}
-
-export default StyledButton
+export default StyledButton;
