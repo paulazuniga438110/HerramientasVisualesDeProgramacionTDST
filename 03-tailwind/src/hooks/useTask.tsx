@@ -11,7 +11,7 @@ export const useTask = (initial: Task[] = []) => {
 
   const addTask = (title: string) => {
     const newTask: Task = {
-      id: Date.now(),
+      id: Date.now(), 
       title,
       isCompleted: false,
     };

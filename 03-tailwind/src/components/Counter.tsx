@@ -1,5 +1,5 @@
 import { useCounter } from "../hooks/useCounter";
-import { StyledButton } from "./StyledButton";
+import { StyledButton } from "./StyledButton"; 
 
 export const Counter = () => {
   const { count, increaseBy, reset } = useCounter(10);
@@ -13,7 +13,7 @@ export const Counter = () => {
       <div className="flex justify-center gap-4">
         <StyledButton
           label="+1"
-          color="bg-green-500"
+          color="bg-green-500" 
           handleClick={() => increaseBy(1)}
         />
         <StyledButton
