@@ -18,18 +18,17 @@ export default function FAB({
 
   return (
     <Pressable 
-    style={(pressed) => [
-        styles.floattingButton,
-        position === "right" ? styles.positionRight : styles.positionLeft,
-        pressed ? { opacity: 0.7 } : { opacity: 1 },
-      ]}
-
-      onPress={onPress}
-      onLongPress={onLongPress}
-
->  <Text style={{ color: "white", fontSize: 20 }}>{label}</Text>
-      <Text>FAB</Text>
-    </Pressable>
+  style={({ pressed }) => [
+    styles.floattingButton,
+    position === "right" ? styles.positionRight : styles.positionLeft,
+    pressed ? { opacity: 0.7 } : { opacity: 1 },
+  ]}
+  onPress={onPress}
+  onLongPress={onLongPress}
+>
+  <Text style={{ color: "white", fontSize: 20 }}>{label}</Text>
+  <Text>FAB</Text>
+</Pressable>
   )
 }
 
