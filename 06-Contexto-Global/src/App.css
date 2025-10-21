@@ -1,0 +1,32 @@
+/* Tema claro */
+.light-theme {
+  background-color: #f7f7f7;
+  color: #222;
+  transition: all 0.4s ease;
+}
+
+/* Tema oscuro */
+.dark-theme {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  transition: all 0.4s ease;
+}
+
+/* Botones */
+button {
+  margin: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.light-theme button {
+  background-color: #ddd;
+  color: #000;
+}
+
+.dark-theme button {
+  background-color: #444;
+  color: #fff;
+}
