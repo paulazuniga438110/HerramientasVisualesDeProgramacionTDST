@@ -4,6 +4,7 @@ import React from 'react'
 interface Props {
   label: string;
   position?: "left" | "right";
+  color?: string; //Prop para color 
   // Actions
   onPress?: () => void;
   onLongPress?: () => void;
@@ -14,6 +15,8 @@ export default function FAB({
    onPress,
    onLongPress,
    position = "right",
+   color = '#007AFF',
+
 }: Props) {
 
   return (
@@ -21,6 +24,7 @@ export default function FAB({
   style={({ pressed }) => [
     styles.floattingButton,
     position === "right" ? styles.positionRight : styles.positionLeft,
+    { backgroundColor: color},
     pressed ? { opacity: 0.7 } : { opacity: 1 },
   ]}
   onPress={onPress}
